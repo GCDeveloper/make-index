@@ -1,5 +1,5 @@
 {
-  "name": "make-index",
+  "name": "@toolia/make-index",
   "version": "1.0.0",
   "description": "writes index.js which exports all files in the current folder",
   "main": "index.js",
