@@ -1,0 +1,32 @@
+{
+  "name": "make-index",
+  "version": "1.0.0",
+  "description": "writes index.js which exports all files in the current folder",
+  "main": "index.js",
+  "module": "main.js",
+  "bin": {
+    "make-index": "bin/make-index.js"
+  },
+  "scripts": {
+    "test": "mocha"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/GCDeveloper/make-index.git"
+  },
+  "keywords": [
+    "cli",
+    "tool"
+  ],
+  "author": "George Campbell",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/GCDeveloper/make-index/issues"
+  },
+  "homepage": "https://github.com/GCDeveloper/make-index#readme",
+  "dependencies": {
+    "@toolia/json-args": "^1.0.6",
+    "@toolia/process-dir": "^1.0.1",
+    "esm": "^3.2.25"
+  }
+}
