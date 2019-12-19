@@ -48,16 +48,17 @@ fs.open(filename, "wx", err => {
   })
     .then(() => {
       console.log("json:\r\n", data);
-      data = data
-        .map(({ fullPath, moduleName }) => {
-          return `
-  import ${moduleName} from '${path.normalize(fullPath)}';
-  export const ${moduleName} = ${moduleName};
+      const importString = data
+        .map(({ moduleName }) => {
+          return `import ${moduleName} from './${moduleName}.js';
 `;
         })
         .join("\r\n");
+        const exportString = `export { ${data.map(({ moduleName }) => `${moduleName}`).join(', ')} };
+`
       //TODO use write stream instead
-      fs.writeFile(filename, data, err => {
+      fs.writeFile(filename, `${importString}
+${exportString}`, err => {
         if (err) throw err;
         console.log(`Successfully written ${filename} to ${cwd}`);
       });
